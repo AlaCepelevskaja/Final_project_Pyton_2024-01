@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 
 products_data = []
-for i in range(1,16):
+for i in range(1,17):
     target = f"https://www.gintarine.lt/persalimas?pagenumber={i}"
     response = requests.get(target)
 # print(response.status_code)
@@ -19,15 +19,13 @@ for i in range(1,16):
         price_regular_text = product.find('span', class_='product__price--regular')
 
         if price_special_text:
-            price_special = price_special_text.text.strip().replace('€', '')
+            price_special = price_special_text.text.strip().replace('€', '').replace(',', '.')
         else:
             price_special = 'N/A'
         if price_regular_text:
-            price_regular = price_regular_text.text.strip().replace('€', '')
+            price_regular = price_regular_text.text.strip().replace('€', '').replace(',', '.')
         else:
             price_regular = 'N/A'
-
-
 
         products_data.append({
             'Brand': brand,
@@ -36,7 +34,6 @@ for i in range(1,16):
             'Price_regular': price_regular
 
         })
-
 
 # print(products_data)
 

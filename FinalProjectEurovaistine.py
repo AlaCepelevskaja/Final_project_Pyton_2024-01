@@ -26,7 +26,7 @@ for i in range(1, 9):
                     eurovaistine_data.append(item)
 
 json_data = json.dumps(eurovaistine_data, indent=4, ensure_ascii=False)
-print(json_data)
-# json_data_io = StringIO(json_data)
-# df = pd.read_json(json_data_io)
-# df.to_csv('products_Eurovaistine.csv', index=False)
+# print(json_data)
+json_data_io = StringIO(json_data)
+df = pd.read_json(json_data_io)
+df.to_csv('products_Eurovaistine.csv', index=False)
