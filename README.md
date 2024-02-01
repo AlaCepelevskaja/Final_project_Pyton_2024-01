@@ -6,7 +6,7 @@ Baigiamasis projektas Vilnius Coding School duomenų analitikos ir python progra
 
 **Projekto tema:** Vaistų kainų palyginimas internetinėse vaistinėse.
 
-**Projekto tikslas:** palyginti vaistų kainas dvejose internetinėse vaistinėse (Eurovaistinė ir Gintarinė vaistinė) peršalimo kategorijoje bei identifikuoti kainų skirtumus, nustatyti pigiausius ir brangiausius produktus analizuojamose vaistinese, bei išsiaiškinti, kaip kainos skiriasi priklausomai vaistų prekės ženklo ar kitų veiksnių.
+**Projekto tikslas:** palyginti vaistų kainas dvejose internetinėse vaistinėse (Eurovaistinė ir Gintarinė vaistinė) peršalimo kategorijoje, identifikuoti kainų skirtumus, nustatyti pigiausius ir brangiausius produktus analizuojamose vaistinese, bei išsiaiškinti, kaip kainos skiriasi priklausomai nuo kitų veiksnių.
 
 **Pasirinktos duomenų bazės apimtis:** 2 internetinės svetainės, peršalimo kategorija:
 
@@ -17,6 +17,7 @@ Baigiamasis projektas Vilnius Coding School duomenų analitikos ir python progra
 Darbas atliktas Python kalba.
 
 ## PROJEKTO SEKA
+
 
 ### I.	DUOMENŲ IŠTRAUKIMAS, APDOROJIMAS, SAUGOJIMAS
 
@@ -75,10 +76,9 @@ Darbas atliktas Python kalba.
  
 5.	10 gamintojų vidutinė kaina:
 
-![image](https://github.com/AlaCepelevskaja/Final_project_Pyton_2024-01/assets/158014250/a565657b-e0fd-431a-86f2-a184d3fa5993)
+![image](https://github.com/AlaCepelevskaja/Final_project_Pyton_2024-01/assets/158014250/6aeb427e-464e-4bab-8d58-6da6a1c13f00)
   	
 ![image](https://github.com/AlaCepelevskaja/Final_project_Pyton_2024-01/assets/158014250/2efb747d-5ade-4c8c-8960-4d72481e834d)
-
 
 
 
