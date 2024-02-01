@@ -87,17 +87,23 @@ Darbas atliktas Python kalba.
 Abi vaistinės siūlo panašų kiekį produktų peršalimo kategorijoje (Eurovaistinė – 339, o Gintarinė vaistinė – 306), tik šiek tiek skiriasi pagrindiniai gamintojai (Eurovaistinės pagrindinis gamintojas, siūlantis daugiausia produktų peršalimo kategorijoje yra ŠVF, o Gintarinės vaistinės – AMBIO).
 
 Siūlomų produktų kaina peršalimo kategorijoje skiriasi ženkliai pagal brangiausius produktus, nes Eurovaistinė siūlo ne tik vaistinius preparatus, bet pvz. inhaliatorius:
-•	brangiausias Eurovaistinės produktas: 87.99 Eur (EVOLU inhaliatorius NANO AIR PRO);
-•	brangiausias Gintarinės vaistinės produktas: 24.14 Eur (OSCILLOCOCCINUM, piliulės, vienadozė talpyklė, N30);
-•	pigiausias Eurovaistinės produktas: 0.47 Eur (EUROCARE pipirinis pleistras, 10 cm x 18 cm);
-•	pigiausias Gintarines produktas: 0.98 Eur (VITADAY MUKALTINAS, 10 tablečių).
+
+•	brangiausias Eurovaistinės produktas: "EVOLU inhaliatorius NANO AIR PRO" - 87.99 Eur;
+
+•	brangiausias Gintarinės vaistinės produktas: "OSCILLOCOCCINUM, piliulės, vienadozė talpyklė, N30" - 24.14 Eur;
+
+•	pigiausias Eurovaistinės produktas: "EUROCARE pipirinis pleistras, 10 cm x 18 cm" - 0.47 Eur;
+
+•	pigiausias Gintarines produktas: "VITADAY MUKALTINAS, 10 tablečių" - 0.98 Eur.
 
 Išanalizavus duomenis, matome tendenciją, kad dauguma produktų abiejose vaistinėse yra iki 10 Eur (Eurovaistinėje – apie 89 %, o Gintarinėje vaistinėje - apie 92 %).
 
 Pagal duomenis matome, kad Gintarinės vaistinės reguliarios kainos (nuolatinės) yra šiek tiek mažesnės nei Eurovaistinės. 
 
 Kainų mediana pagal vaistines:
+
 •	Eurovaistinės produktų kainų mediana:  5.69;
+
 •	Gintarinės vaistinės produktų kainų mediana:  6.29.
 
 Pagal surinktus 2 internetinių vaistinių duomenis, matoma tendencija kad kainų lygis yra labai panašus, o skirtumai matomi tik taikant specialias kainas.
