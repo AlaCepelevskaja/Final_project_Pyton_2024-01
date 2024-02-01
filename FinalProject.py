@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -6,14 +6,13 @@ pd.set_option('display.max_rows',1000)
 pd.set_option('display.max_columns',500)
 pd.set_option('display.width',2000)
 
-
 file_path = "products_Eurovaistine.csv"
 products_df_E = pd.read_csv(file_path)
 
 file_path_2 = "products_Gintarine.csv"
 products_df_G = pd.read_csv(file_path_2)
 
-# tvarkem kaina, is centu vertem i Eurus
+# tvarkem Eurovaistines kaina, is centu vertem i Eurus
 products_df_E['Price_special'] = products_df_E['Price_special'] / 100
 products_df_E['Price_regular'] = products_df_E['Price_regular'] / 100
 # print(products_df_E)
@@ -65,6 +64,7 @@ average_price_by_brand_G = df2.groupby('Brand')['Price_special'].mean().round(2)
 # print('Eurovaistines siulomu produktu vidutine kaina pagal gamintoja: ', average_price_by_brand_E)
 # print('Gintarines siulomu produktu vidutine kaina pagal gamintoja: ', average_price_by_brand_G)
 
+
 # pagal vaistine: siulomu persalimo kategorijos produktu kainu mediana
 median_price_E = df1['Price_special'].median()
 median_price_G = df2['Price_special'].median()
@@ -85,54 +85,117 @@ filtered_virs_10_G = df2['Price_special'][df2['Price_special'] > 10].count()
 # group by _merge = both
 filtras = 'both'
 df3_filtered = df3[df3['_merge'] == filtras]
-print(df3_filtered)
+# print(df3_filtered.head(6))
 
-# lyginam 2 vaistiniu kainas
+# GRAFIKAI
 
-# grafikas nr. 1
+# nr. 1: kainu palyginimas pagal vaistines
 # plt.figure(figsize=(10,6))
-# plt.hist(products_df['Price'], bins=20, color="darksalmon")
-# plt.title("Histogram of product prices")
-# plt.xlabel('Price')
-# plt.ylabel('Number of products')
-# plt.grid(True)
+# x = np.array(df3_filtered['Title'].head(6))
+# y = np.array(df3_filtered['Price_special_x'].head(6))
+# plt.scatter( 2, 2)
+# plt.plot(x,y, 'o:g', label='Eurovaistine')
+# y = np.array(df3_filtered['Price_special_y'].head(6))
+# plt.plot(x,y, 'o:b', label='Gintarine')
+# plt.xticks(rotation =270)
+# plt.legend(loc="upper left")
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
+# plt.suptitle('Kainu palyginimas pagal vaistines')
 # plt.show()
 
-# grafikas nr. 2
-# sorted_products = df3_filtered.sort_values(by='Price_special', ascending=False).reset_index(drop=True).head(10)
-#reset pakeisti numeracija, o head apibrezia kiek rezultatu norime
+# nr. 2: brangiausi vaistai pagal vaistine TOP5
+# sorted_products = df1.sort_values(by='Price_special', ascending=False).reset_index(drop=True).head(5)
+# # reset pakeisti numeracija, o head apibrezia kiek rezultatu norime
 # plt.figure(figsize=(12,6))
-# plt.bar(sorted_products['Title'], sorted_products['Price'], color='teal')
-# plt.xlabel('Product Title')
-# plt.ylabel('Price(€)')
-# plt.title('Top 10 most expensive products')
-# plt.xticks(rotation=90)
-# plt.show()
-
-# grafikas nr. 3
-# plt.figure(figsize=(12,8))
-# average_salary_by_dep.plot(kind='bar')
-# plt.title('Vidutine kaina pagal gamintoja')
-# plt.xlabel('Gamintojas')
-# plt.ylabel('Vidutine kaina')
-# plt.xticks(rotation=0) #padarom kad nesuktu teksto ant x asies
-# plt.show()
-
-# grafikas nr. 4
-# df['Price'].plot(kind='hist', bins=20)
-# plt.xlabel=('Kaina')
-# plt.title('Kainu pasiskirstymas')
-# plt.show()
-
-# grafikas nr. 5
-#ant kiekvieno stulpelio - reiksme
-# data_to_plot=df['Price'].head(10)
-# plt.figure(figsize=(10,6))
-# bars=plt.bar(data_to_plot.index, data_to_plot.values)
+# bars = plt.bar(sorted_products['Title'], sorted_products['Price_special'], color='green')
 # for bar in bars:
 #     yval=bar.get_height()
 #     plt.text(bar.get_x()+bar.get_width()/2.0,yval,round(yval,2), va='bottom', ha='center')
-# plt.title('Produktu kainos')
-# plt.xlabel('Produktu indeksai')
-# plt.ylabel('Kaina')
+# plt.xlabel('Produkto pavadinimas')
+# plt.ylabel('Kaina, Eur')
+# plt.title('Top 5 brangiausi produktai Eurovaistineje persalimo kategorijoje')
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
+# plt.show()
+
+# sorted_products = df2.sort_values(by='Price_special', ascending=False).reset_index(drop=True).head(5)
+# # reset pakeisti numeracija, o head apibrezia kiek rezultatu norime
+# plt.figure(figsize=(12,6))
+# bars = plt.bar(sorted_products['Title'], sorted_products['Price_special'], color='blue')
+# for bar in bars:
+#     yval=bar.get_height()
+#     plt.text(bar.get_x()+bar.get_width()/2.0,yval,round(yval,2), va='bottom', ha='center')
+# plt.xlabel('Produkto pavadinimas')
+# plt.ylabel('Kaina, Eur')
+# plt.title('Top 5 brangiausi produktai Gintarineje vaistineje persalimo kategorijoje')
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
+# plt.show()
+
+# nr. 3: pigiausi vaistai pagal vaistine TOP5
+# sorted_products = df1.sort_values(by='Price_special', ascending=True).reset_index(drop=True).head(5)
+# # reset pakeisti numeracija, o head apibrezia kiek rezultatu norime
+# plt.figure(figsize=(10,6))
+# bars = plt.bar(sorted_products['Title'], sorted_products['Price_special'], color='green')
+# for bar in bars:
+#     yval=bar.get_height()
+#     plt.text(bar.get_x()+bar.get_width()/2.0,yval,round(yval,2), va='bottom', ha='center')
+# plt.xlabel('Produkto pavadinimas')
+# plt.ylabel('Kaina, Eur')
+# plt.title('Top 5 pigiausi produktai Eurovaistineje persalimo kategorijoje')
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
+# plt.show()
+
+# sorted_products = df2.sort_values(by='Price_special', ascending=True).reset_index(drop=True).head(5)
+# # reset pakeisti numeracija, o head apibrezia kiek rezultatu norime
+# plt.figure(figsize=(10,6))
+# bars = plt.bar(sorted_products['Title'], sorted_products['Price_special'], color='blue')
+# for bar in bars:
+#     yval=bar.get_height()
+#     plt.text(bar.get_x()+bar.get_width()/2.0,yval,round(yval,2), va='bottom', ha='center')
+# plt.xlabel('Produkto pavadinimas')
+# plt.ylabel('Kaina, Eur')
+# plt.title('Top 5 pigiausi produktai Gintarineje vaistineje persalimo kategorijoje')
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
+# plt.show()
+
+# nr. 4: statistika
+# plt.figure(figsize=(10,6))
+# plt.hist(df1['Price_special'], bins=20, color="green")
+# plt.title("Eurovaistines siulomu produktu kainu pasiskirstymas")
+# plt.xlabel('Kaina, Eur')
+# plt.ylabel('Produktu skaicius')
+# plt.grid(True)
+# plt.xticks(np.arange(0, 100, 5))
+# plt.show()
+
+# plt.figure(figsize=(10,6))
+# plt.hist(df2['Price_special'], bins=20, color="blue")
+# plt.title("Gintarines vaistines siulomu produktu kainu pasiskirstymas")
+# plt.xlabel('Kaina, Eur')
+# plt.ylabel('Produktu skaicius')
+# plt.grid(True)
+# plt.xticks(np.arange(0, 30, 5))
+# plt.show()
+
+# nr. 5: vidutine kaina pagal gamintoja
+# plt.figure(figsize=(10,6))
+# average_price_by_brand_E.head(10).plot(kind='bar', color="green")
+# plt.title("Eurovaistines siulomu produktu vidutines kainos pagal 10 gamintoju")
+# plt.xlabel('Gamintojas')
+# plt.ylabel('Vidutine kaina')
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
+# plt.show()
+
+# plt.figure(figsize=(10,6))
+# average_price_by_brand_G.head(10).plot(kind='bar', color="blue")
+# plt.title("Gintarines vaistines siulomu produktu vidutines kainos pagal 10 gamintoju")
+# plt.xlabel('Gamintojas')
+# plt.ylabel('Vidutine kaina')
+# plt.xticks(rotation=90, ha='right', va='center', wrap=True)
+# plt.subplots_adjust(bottom = 0.20)
 # plt.show()
